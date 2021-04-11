@@ -20,12 +20,12 @@ public class CalculadoraController {
 	}
 	
 	@GetMapping("/calculoSuma")
-	public ModelAndView getCalculoSuma(@RequestParam (name = "num1") String num1, @RequestParam (name = "num2") int num2) {
+	public ModelAndView getCalculoSuma(@RequestParam (name = "num1") String num1, @RequestParam (name = "num2") double num2) {
 		
-		unaCalculadora.setNum1(Integer.valueOf(num1));
+		unaCalculadora.setNum1(Double.valueOf(num1));
 		unaCalculadora.setNum2(num2);
 		
-		int resultadoSuma = unaCalculadora.sumar();
+		double resultadoSuma = unaCalculadora.sumar();
 		
 		ModelAndView modelView = new ModelAndView("resultado");  //devuelve la pagina llamada resultado
 		modelView.addObject("resultadoSuma", resultadoSuma);
@@ -36,19 +36,19 @@ public class CalculadoraController {
 	@GetMapping("/calculoResta")
 	public ModelAndView getRestaPage(@RequestParam (name = "num1") String num1, @RequestParam (name = "num2") int num2) {
 		
-		unaCalculadora.setNum1(Integer.valueOf(num1));
-		unaCalculadora.setNum2(Integer.valueOf(num2));
+		unaCalculadora.setNum1(Double.valueOf(num1));
+		unaCalculadora.setNum2(Double.valueOf(num2));
 		
-		int resultadoResta = unaCalculadora.restar();
+		double resultadoResta = unaCalculadora.restar();
 		
 		ModelAndView modelView = new ModelAndView("resultado");
 		modelView.addObject("resultadoResta", resultadoResta);
 		
 		return modelView;
 		}
-	/*	
+		
 	@GetMapping("/calculoProducto")
-	public ModelAndView getProductoPage(@RequestParam (name = "num1") String num1, @RequestParam (name = "num2") int num2) {
+	public ModelAndView getProductoPage(@RequestParam (name = "num1") String num1, @RequestParam (name = "num2") double num2) {
 		
 		unaCalculadora.setNum1(Double.valueOf(num1));
 		unaCalculadora.setNum2(Double.valueOf(num2));
@@ -62,7 +62,7 @@ public class CalculadoraController {
 		}
 	
 	@GetMapping("/calculoCociente")
-	public ModelAndView getCocientePage(@RequestParam (name = "num1") String num1, @RequestParam (name = "num2") int num2) {
+	public ModelAndView getCocientePage(@RequestParam (name = "num1") String num1, @RequestParam (name = "num2") double num2) {
 		
 		unaCalculadora.setNum1(Double.valueOf(num1));
 		unaCalculadora.setNum2(Double.valueOf(num2));
@@ -74,6 +74,5 @@ public class CalculadoraController {
 		
 		return modelView;
 		}
-		*/
-
+		
 }
