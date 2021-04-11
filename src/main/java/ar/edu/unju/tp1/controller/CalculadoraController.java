@@ -34,7 +34,7 @@ public class CalculadoraController {
 		}
 	
 	@GetMapping("/calculoResta")
-	public ModelAndView getRestaPage(@RequestParam (name = "num1") String num1, @RequestParam (name = "num2") int num2) {
+	public ModelAndView getRestaPage(@RequestParam (name = "num1") String num1, @RequestParam (name = "num2") double num2) {
 		
 		unaCalculadora.setNum1(Double.valueOf(num1));
 		unaCalculadora.setNum2(Double.valueOf(num2));
